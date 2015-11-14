@@ -1,20 +1,30 @@
 package model.piece;
 
+import model.player.Player;
+import model.player.PlayerColor;
+
 public abstract class Piece {
 	private PieceIcon icon;
 	private int xAxis;
 	private int yAxis;
-	public Piece(int x, int y, PieceIcon icon){
+	private Player player;
+	public Piece(int x, int y, Player player, PieceIcon icon){
 		setxAxis(x);
 		setyAxis(y);
+		setPlayer(player);
 		this.icon = icon;
 	}
 	public abstract void movePiece(int x, int y);
+	public abstract boolean isValidMove(int x, int y);
 	public void killPiece(){
 		
 	};
 	public String getIcon(){
-		return icon.getImageName();
+		if (player.getColor() == PlayerColor.White){
+			return "../images/white" + icon.getImageName();
+		} else {
+			return "../images/black" + icon.getImageName();
+		}
 	}
 	public int getxAxis() {
 		return xAxis;
@@ -27,5 +37,11 @@ public abstract class Piece {
 	}
 	public void setyAxis(int yAxis) {
 		this.yAxis = yAxis;
-	};
+	}
+	public Player getPlayer() {
+		return player;
+	}
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
 }

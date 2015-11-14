@@ -1,12 +1,14 @@
 package model.piece;
 
+import model.player.Player;
+
 public class Queen extends Piece {
-	public Queen(int x, int y, PieceIcon icon) {
-		super(x, y, PieceIcon.QUEEN);
+	public Queen(int x, int y, Player player) {
+		super(x, y, player, PieceIcon.QUEEN);
 	}
 	@Override
-	public void movePiece(int x, int y) {
-		// TODO Auto-generated method stub
+	public boolean isValidMove(int x, int y) {
+		return true;
 	}
 
 }
