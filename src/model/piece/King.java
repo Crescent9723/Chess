@@ -1,5 +1,6 @@
 package model.piece;
 
+import model.board.Spot;
 import model.player.Player;
 
 public class King extends Piece {
@@ -7,7 +8,7 @@ public class King extends Piece {
 		super(x, y, player, PieceIcon.KING);
 	}
 	@Override
-	public boolean isValidMove(int x, int y) {
+	public boolean isValidMove(Spot newSpot) {
 		return true;
 	}
 

@@ -1,5 +1,6 @@
 package model.piece;
 
+import model.board.Spot;
 import model.player.Player;
 import model.player.PlayerColor;
 
@@ -14,13 +15,19 @@ public abstract class Piece {
 		setPlayer(player);
 		this.icon = icon;
 	}
-	public abstract void movePiece(int x, int y);
-	public abstract boolean isValidMove(int x, int y);
+	public void movePiece(Spot newSpot){
+		Spot origSpot = player.getPieces().get(this);
+		newSpot.setPiece(this);
+		origSpot.setPiece(null);
+		newSpot.setPieceImage();
+		origSpot.setPieceImage();
+	}
+	public abstract boolean isValidMove(Spot newSpot);
 	public void killPiece(){
 		
 	};
 	public String getIcon(){
-		if (player.getColor() == PlayerColor.White){
+		if (player.checkPlayerTurn(0)){
 			return "../images/white" + icon.getImageName();
 		} else {
 			return "../images/black" + icon.getImageName();
