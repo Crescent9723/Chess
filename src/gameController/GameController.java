@@ -1,3 +1,13 @@
+/**
+ * @author Andy Son
+ * @date Nov.14.2015
+ * GameController class.
+ * This class is the actual class to run the chess game.
+ * It creates the board and places pieces onto the board.
+ * This class gets various information from other class,
+ * Piece info, player colors and mouseclick events.
+ */
+
 package gameController;
 
 import java.awt.Color;
@@ -62,7 +72,9 @@ public class GameController{
 	};
 
 	public static Spot[][] board = initBoard;
-
+	/**
+	 * @param args
+	 */
 	public static void main(String args[]){
 		container.setLayout(new GridLayout(8,8,0,0));
 		container.setSize(getBoardSize(), getBoardSize());
@@ -81,6 +93,9 @@ public class GameController{
 		container.getRootPane().getActionMap().put("Cancel", new AbstractAction(){ //$NON-NLS-1$
 
 			@Override
+			/**
+			 * @param ActionEvent e
+			 */
 			public void actionPerformed(ActionEvent e){
 				if (picked){
 					picked = false;
@@ -108,7 +123,9 @@ public class GameController{
 			}
 		}
 	}
-
+	/**
+	 * @param c
+	 */
 	private static void initBoard(Container c) {
 		for(int i = 0; i < 8; i++){
 			for(int j = 0; j < 8; j++){
@@ -121,7 +138,9 @@ public class GameController{
 			}
 		}
 	}
-
+	/**
+	 * @return boardSize
+	 */
 	public static int getBoardSize() {
 		return boardSize;
 	}

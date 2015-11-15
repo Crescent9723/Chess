@@ -1,3 +1,10 @@
+/**
+ * @author Andy Son
+ * @date Nov.14.2015
+ * Piece abstract class.
+ * This class is Piece class, which is extended from
+ * other pieces to override method and get informations.
+ */
 package model.piece;
 
 import java.awt.Color;
@@ -11,6 +18,12 @@ public abstract class Piece {
 	protected int xAxis;
 	protected int yAxis;
 	protected Player player;
+	/**
+	 * @param x
+	 * @param y
+	 * @param player
+	 * @param icon
+	 */
 	public Piece(int x, int y, Player player, PieceIcon icon){
 		setxAxis(x);
 		setyAxis(y);
@@ -18,6 +31,9 @@ public abstract class Piece {
 		this.icon = icon;
 	}
 	public void movePiece(Spot newSpot){
+		/**
+		 * @param newSpot
+		 */
 		Piece newSpotPiece = newSpot.getPiece();
 		Spot origSpot = player.getPieces().remove(this);
 		
@@ -37,7 +53,17 @@ public abstract class Piece {
 		yAxis = newSpot.getYAxis();
 		player.addPiece(newSpot, this);
 	}
+	/**
+	 * @param newSpot
+	 * @return
+	 */
 	public abstract boolean isValidMove(Spot newSpot);
+	/**
+	 * @param origSpot
+	 * @param newSpot
+	 * @param diagonal
+	 * @return
+	 */
 	public boolean isEmptyBetween(Spot origSpot, Spot newSpot, boolean diagonal){
 		if (diagonal){
 			if (origSpot.getXAxis() > newSpot.getXAxis()){
@@ -123,9 +149,14 @@ public abstract class Piece {
 		}
 		return true;
 	}
+	
+	 
 	public void killPiece(){
 		player.removePiece(this);
 	};
+	/**
+	 * @return getImageName
+	 */
 	public String getIcon(){
 		if (player.checkPlayerTurn(0)){
 			return "../images/white" + icon.getImageName();
@@ -133,21 +164,39 @@ public abstract class Piece {
 			return "../images/black" + icon.getImageName();
 		}
 	}
+	/**
+	 * @return xAxis
+	 */
 	public int getxAxis() {
 		return xAxis;
 	}
+	/**
+	 * @param xAxis
+	 */
 	public void setxAxis(int xAxis) {
 		this.xAxis = xAxis;
 	}
+	/**
+	 * @return yAxis
+	 */
 	public int getyAxis() {
 		return yAxis;
 	}
+	/**
+	 * @param yAxis
+	 */
 	public void setyAxis(int yAxis) {
 		this.yAxis = yAxis;
 	}
+	/**
+	 * @return player
+	 */
 	public Player getPlayer() {
 		return player;
 	}
+	/**
+	 * @param player
+	 */
 	public void setPlayer(Player player) {
 		this.player = player;
 	}

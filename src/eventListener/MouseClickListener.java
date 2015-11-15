@@ -1,3 +1,10 @@
+/**
+ * @author Andy Son
+ * @date Nov.14.2015
+ * MouseClickListener.
+ * This class contains all the methods that
+ * accepts functions from mouse inputs from the user.
+ */
 package eventListener;
 
 import java.awt.Color;
@@ -10,6 +17,9 @@ import gameController.GameController;
 import model.board.Spot;
 
 public class MouseClickListener implements MouseListener {
+	/**
+	 * @param MouseEvent e
+	 */
 	public void mouseClicked(MouseEvent e){ 
 		int x = e.getX();
 		int y = e.getY();

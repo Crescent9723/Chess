@@ -1,3 +1,11 @@
+/**
+ * @author Andy Son
+ * @date Nov.14.2015
+ * Spot class.
+ * This class gets x values and y values from the board
+ * and pieces, and allows GameController class to place the
+ * pieces on the correct grid.
+ */
 package model.board;
 
 import java.awt.Graphics2D;
@@ -24,21 +32,39 @@ public class Spot extends JPanel {
 		setPieceImage();
 		this.add(icon);
 	}
+	/**
+	 * @return xAxis
+	 */
 	public int getXAxis() {
 		return xAxis;
 	}
+	/**
+	 * @param xAxis
+	 */
 	public void setXAxis(int xAxis) {
 		this.xAxis = xAxis;
 	}
+	/**
+	 * @return yAxis
+	 */
 	public int getYAxis() {
 		return yAxis;
 	}
+	/**
+	 * @param yAxis
+	 */
 	public void setYAxis(int yAxis) {
 		this.yAxis = yAxis;
 	}
+	/**
+	 * @return piece
+	 */
 	public Piece getPiece() {
 		return piece;
 	}
+	/**
+	 * @param piece
+	 */
 	public void setPiece(Piece piece) {
 		this.piece = piece;
 	}
@@ -54,9 +80,21 @@ public class Spot extends JPanel {
 		icon.setVisible(true);
 		this.repaint();
 	}
+	/**
+	 * @param icon
+	 * @param width
+	 * @param height
+	 * @return ImageIcon
+	 */ 
 	static public ImageIcon getScaleImageIcon(ImageIcon icon, int width, int height) {
 		return new ImageIcon(getScaledImage(icon.getImage(), width, height));
 	}
+	/**
+	 * @param srcImg
+	 * @param width
+	 * @param height
+	 * @return
+	 */
 	static private Image getScaledImage(Image srcImg, int width, int height){
 		BufferedImage resizedImg = 
 				new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
