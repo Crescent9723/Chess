@@ -57,7 +57,11 @@ public class King extends Piece {
 	}
 	@Override
 	public void killPiece() {
-		JOptionPane.showMessageDialog(GameController.container, "Game End: Player " + player.getColor().name() + " wins!");
+		if (player.getColor() == PlayerColor.White){
+			JOptionPane.showMessageDialog(GameController.container, "Game End: Player Black Wins!");
+		} else {
+			JOptionPane.showMessageDialog(GameController.container, "Game End: Player White Wins!");
+		}
 		System.exit(0);
 	}
 	
