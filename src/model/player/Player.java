@@ -12,16 +12,20 @@ public class Player {
 		this.color = color;
 	}
 	public boolean checkPlayerTurn(int turn){
-		return color.getNum() == turn;
+		return getColor().getNum() == turn;
 	}
 	
 	public void addPiece(Spot spot, Piece piece){
-		getPieces().put(piece, spot);
+		pieces.put(piece, spot);
 	}
 	public void removePiece(Piece piece){
-		getPieces().remove(piece);
+		pieces.remove(piece);
 	}
 	public HashMap<Piece, Spot> getPieces() {
 		return pieces;
 	}
+	public PlayerColor getColor() {
+		return color;
+	}
+	
 }

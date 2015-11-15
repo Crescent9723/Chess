@@ -9,7 +9,18 @@ public class Bishop extends Piece {
 	}
 	@Override
 	public boolean isValidMove(Spot newSpot) {
-		return true;
+		if (Math.abs(xAxis - newSpot.getXAxis()) == Math.abs(yAxis - newSpot.getYAxis())){
+			if (isEmptyBetween(player.getPieces().get(this), newSpot, true)){
+				if (newSpot.getPiece() != null){
+					if (newSpot.getPiece().getPlayer().getColor() == player.getColor()){
+						return false;
+					}
+				}
+				return true;
+			}
+			
+		} 
+		return false;
 	}
 
 }
